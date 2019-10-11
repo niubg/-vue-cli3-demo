@@ -1,12 +1,15 @@
 # author
 
-**配置**
-    vue-cli3
-    Babel7
-    Router
-    Vuex
-    Less
+**配置：**
+    vue-cli3、
+    Babel7、
+    Router、
+    Vuex、
+    Less、
     ESLint
+
+**UI库：**
+    vant
 
 ## 项目安装
 ```
