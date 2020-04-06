@@ -9,7 +9,6 @@
 
 <script>
 import { mapActions } from 'vuex'
-import { isAppTadu } from '../common/utils/isApp'
 import { Button } from 'vant';
 export default {
   name: 'HelloWorld',

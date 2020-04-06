@@ -6,7 +6,8 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    name: "全局Store"
+    name: "全局Store",
+    globalLoading: false
   },
   mutations: {
 

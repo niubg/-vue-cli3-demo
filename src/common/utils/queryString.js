@@ -65,3 +65,24 @@ export function arrRepeat(arr) {
     });
     return r
 }
+
+/**
+ * 设置localStorage
+ * @param name
+ * @param value
+ */
+export function setStorageItem(name, value) {
+    if (value) {
+      window.localStorage.setItem(name, JSON.stringify(value));
+    }
+}
+
+/**
+ * 获取localStorage
+ * @param name
+ * @param value
+ */
+export function getStorageItem(name) {
+    let value = window.localStorage.getItem(name);
+    return value == null ? '' : JSON.parse(value);
+  }

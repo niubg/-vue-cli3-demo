@@ -22,7 +22,7 @@ export function checkVerifyCode(verifyCode) {
  * @returns {boolean}
  */
 export function checkPassword(password) {
-  return password == null ? false : /^[a-zA-Z0-9]{8,20}$/g.test(password);
+  return password == null ? false : /^[a-zA-Z0-9]{6,16}$/g.test(password);
 }
 
 /**

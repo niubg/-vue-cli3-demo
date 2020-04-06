@@ -1,14 +1,12 @@
-/*
- * @describe:
- * @Author: niubg
- * @Date: 2019-10-08 17:03:36
- * @LastEditors: niubg
- * @LastEditTime: 2019-10-08 17:03:36
- */
+
 const path = require('path');
 const Timestamp = new Date().getTime(); // 时间戳
 module.exports = {
-  publicPath: "./",
+  publicPath: process.env.VUE_APP_baseURL == 'dev'
+    ? "http://dev.tadu.com/"
+    : process.env.VUE_APP_baseURL == 'test' 
+    ? 'http://test.tadu.com/'
+    : "./",
   outputDir: "dist",
   configureWebpack: {
     output: { // 输出重构  打包编译后的 文件名称  【模块名称.版本号.时间戳】
@@ -31,10 +29,10 @@ module.exports = {
   devServer: {
     open: "Chrome",
     port: 8080,
-    host: "10.2.3.139",
+    host: "0.0.0.0",
     proxy: {
       "/api": {
-        target: "http://api.niubg.vip/api/niubg",
+        target: "http://api.niubg.vip/api/",
         changeOrigin: true,
         pathRewrite: { "^/api": "" }
       }
@@ -45,5 +43,12 @@ module.exports = {
       preProcessor: 'less',
       patterns: [path.resolve(__dirname, './src/assets/less/global.less')]
     }
+  },
+  chainWebpack: config => {
+    // console.log('打包环境1', process.env)
+    console.log('打包环境', process.env.VUE_APP_baseURL)
+    console.log("版本", process.env.TERM_PROGRAM_VERSION)
+    // console.log('打包环境3', config)
+   
   }
 }

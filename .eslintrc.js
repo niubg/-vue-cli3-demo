@@ -29,10 +29,11 @@ module.exports = {
     "no-new-object": 0,
     "handle-callback-err": 0, // 规定callback 如果有err参数，只能写出err 或者 error
     "no-tabs": 0,
+    "no-trailing-spaces": 0,
     'vue/no-use-v-if-with-v-for': ['off'],
     'vue/component-name-in-template-casing': ['off'],
     'vue/name-property-casing': ['off'],
-    'vue/no-unused-components': ['off'],
+    'vue/no-unused-components': ['off']
   },
   parserOptions: {
     parser: 'babel-eslint'
