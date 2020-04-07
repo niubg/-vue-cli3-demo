@@ -3,13 +3,26 @@ import axios from 'axios'
 import router from '../../router/index'
 
 let proxy = "";
-if (process.env.NODE_ENV == "production") {
-  axios.defaults.baseURL = "../";
-  proxy = "../"
+// if (process.env.NODE_ENV == "production") {
+//   axios.defaults.baseURL = "../";
+//   proxy = "../"
+// } else {
+//   axios.defaults.baseURL = "/api";
+//   proxy = "/api"
+// }
+
+let buildType = process.env.VUE_APP_baseURL
+if (buildType == 'dev') {
+  axios.defaults.baseURL = "http://dev.tadu.com/"
+  proxy = "http://dev.tadu.com/"
+} else if (buildType == 'test') {
+  axios.defaults.baseURL = "http://test.tadu.com/"
+  proxy = "http://test.tadu.com/"
 } else {
   axios.defaults.baseURL = "/api";
   proxy = "/api"
 }
+
 // 默认渠道号4-微信H5
 // axios.defaults.headers.common['channel'] = "4"
 

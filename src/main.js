@@ -5,9 +5,6 @@ import store from './store/index'
 import 'lib-flexible/flexible.js'
 import * as axios from './common/utils/http';
 import "./assets/less/global.less"
-import {hybrid} from './common/app'
-
-Vue.prototype.$hybrid = hybrid
 Vue.prototype.axios = axios
 Vue.config.productionTip = false
 

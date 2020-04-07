@@ -8,7 +8,11 @@
 const path = require('path');
 const Timestamp = new Date().getTime(); // 时间戳
 module.exports = {
-  publicPath: "./",
+  publicPath: process.env.VUE_APP_baseURL == 'dev'
+    ? "http://dev.tadu.com/"
+    : process.env.VUE_APP_baseURL == 'test' 
+    ? 'http://test.tadu.com/'
+    : "./",
   outputDir: "dist",
   configureWebpack: {
     output: { // 输出重构  打包编译后的 文件名称  【模块名称.版本号.时间戳】

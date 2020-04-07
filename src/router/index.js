@@ -1,10 +1,4 @@
-/*
- * @describe:
- * @Author: niubg
- * @Date: 2019-10-08 16:42:47
- * @LastEditors: niubg
- * @LastEditTime: 2019-10-08 17:39:22
- */
+
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../views/home/Home.vue'
@@ -30,7 +24,7 @@ let routerArr = [
     path: '/about',
     name: 'about',
     meta: { requireAuth: true },
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: () => import('../views/home/Home.vue')
   }
 ]
 let routes = routerArr.concat(routerBranch);
