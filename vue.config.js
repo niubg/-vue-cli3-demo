@@ -1,10 +1,3 @@
-/*
- * @describe:
- * @Author: niubg
- * @Date: 2019-10-08 17:03:36
- * @LastEditors: niubg
- * @LastEditTime: 2019-10-08 17:03:36
- */
 const path = require('path');
 const Timestamp = new Date().getTime(); // 时间戳
 module.exports = {
