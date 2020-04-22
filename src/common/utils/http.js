@@ -11,13 +11,15 @@ console.log('打印', process.env.VUE_APP_baseURL)
 //   axios.defaults.baseURL = "/api";
 //   proxy = "/api"
 // }
-let buildType = process.env.VUE_APP_baseURL
+let buildType = process.env.VUE_APP_TYPE
 if (buildType == 'dev') {
-  axios.defaults.baseURL = "http://dev.tadu.com/"
-  proxy = "http://dev.tadu.com/"
+  axios.defaults.baseURL = process.env.VUE_APP_baseURL
+  // proxy = "http://dev.tadu.com/"
 } else if (buildType == 'test') {
-  axios.defaults.baseURL = "http://test.tadu.com/"
-  proxy = "http://test.tadu.com/"
+  axios.defaults.baseURL = process.env.VUE_APP_baseURL
+  // proxy = "http://test.tadu.com/"
+} else if (process.env.NODE_ENV == "production") {
+  axios.defaults.baseURL = "";
 } else {
   axios.defaults.baseURL = "/api";
   proxy = "/api"
@@ -28,7 +30,7 @@ if (buildType == 'dev') {
 // http request 拦截器，通过这个，我们就可以把Cookie传到后台
 axios.interceptors.request.use(
   (config) => {
-    const token = '1234567899'; //获取Cookie
+    // const token = '1234567899'; //获取Cookie
     // 包装请求参数
     let requestData = warpRequestData(config.data);
     config.data = JSON.stringify(requestData);
@@ -69,9 +71,9 @@ export default axios;
  */
 export function warpRequestData(data) {
   let warpData = {
-    channel: "",
-    userId: "",
-    version: '',
+    // channel: "",
+    // userId: "",
+    // version: '',
     data: data
   }
   return warpData;

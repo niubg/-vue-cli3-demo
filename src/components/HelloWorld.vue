@@ -2,7 +2,6 @@
   <div class="hello">
     <div>{{this.$store.state.name}}</div>
     <div>{{this.$store.state.storeBranch.name}}</div>
-    <div v-if="provideShow">方法暴露</div>
     <Button type="info">按钮</Button>
   </div>
 </template>
@@ -24,15 +23,11 @@ export default {
     }
   },
   created() {
-    this.$hybrid.provide = this.provide
-    // window.TaduNative.showConfirmDialog("离开", "是否保存当前内容", "确认", "取消", "provide")
+    this.getInfo()
   },
   mounted() {},
   methods: {
-    ...mapActions(['getInfo']),
-    provide() {
-      this.provideShow = true
-    }
+    ...mapActions('storeBranch', ['getInfo'])
   }
 }
 </script>

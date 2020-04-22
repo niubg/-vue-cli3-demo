@@ -13,7 +13,9 @@ const store = new Vuex.Store({
 
   },
   actions: {
-
+    getInfo() {
+        console.log("这是从store中打印出来的！")
+    }
   },
   modules: {
     storeBranch: storeBranch
