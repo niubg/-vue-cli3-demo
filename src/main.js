@@ -4,7 +4,7 @@ import router from './router'
 import store from './store'
 import * as axios from './common/utils/http';
 import "./assets/less/global.less"
-import 'view-design/dist/styles/iview.css';
+import 'ant-design-vue/dist/antd.css'
 
 Vue.prototype.axios = axios
 Vue.config.productionTip = false
