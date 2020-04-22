@@ -5,8 +5,8 @@ import router from '../../router/index'
 let proxy = "";
 console.log('打印', process.env.VUE_APP_baseURL)
 // if (process.env.NODE_ENV == "production") {
-//   axios.defaults.baseURL = "../";
-//   proxy = "../"
+//   axios.defaults.baseURL = "";
+//   proxy = ""
 // } else {
 //   axios.defaults.baseURL = "/api";
 //   proxy = "/api"
@@ -30,10 +30,17 @@ if (buildType == 'dev') {
 // http request 拦截器，通过这个，我们就可以把Cookie传到后台
 axios.interceptors.request.use(
   (config) => {
-    // const token = '1234567899'; //获取Cookie
+    // debugger
+    const token = ''; //获取Cookie
     // 包装请求参数
-    let requestData = warpRequestData(config.data);
-    config.data = JSON.stringify(requestData);
+    if (config.method == 'get') {
+      let paramsData = warpRequestData(config.params);
+      config.params = paramsData;
+      console.log("url", config.params)
+    } else {
+      let requestData = warpRequestData(config.data);
+      config.data = JSON.stringify(requestData);
+    }    
     config.headers = { 'Content-Type': 'application/json; charset=UTF-8' };
     if (token) {
       config.headers.token = token //后台接收的参数，后面我们将说明后台如何接收

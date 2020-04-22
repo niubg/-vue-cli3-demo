@@ -1,4 +1,3 @@
-
 module.exports = {
   root: true,
   env: {
@@ -6,11 +5,15 @@ module.exports = {
   },
   'extends': [
     'plugin:vue/essential',
-    '@vue/standard'
+    'eslint:recommended'
+    // '@vue/standard'
   ],
+  parserOptions: {
+    parser: 'babel-eslint'
+  },
   rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     "vue/no-parsing-error": [2, { "x-invalid-end-tag": false }],
     "no-undef": "off",
     "semi": [0, "always"], // 语句强制分号结尾
@@ -34,8 +37,5 @@ module.exports = {
     'vue/component-name-in-template-casing': ['off'],
     'vue/name-property-casing': ['off'],
     'vue/no-unused-components': ['off']
-  },
-  parserOptions: {
-    parser: 'babel-eslint'
   }
 }

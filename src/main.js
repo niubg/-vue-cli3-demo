@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import store from './store/index'
-import 'lib-flexible/flexible.js'
+import store from './store'
 import * as axios from './common/utils/http';
 import "./assets/less/global.less"
+import 'view-design/dist/styles/iview.css';
 
 Vue.prototype.axios = axios
 Vue.config.productionTip = false

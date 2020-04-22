@@ -1,3 +1,3 @@
-let routerArr = []
+const routerArr = []
 
 export default routerArr

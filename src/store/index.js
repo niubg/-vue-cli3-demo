@@ -4,22 +4,14 @@ import storeBranch from './storeBranch'
 
 Vue.use(Vuex)
 
-const store = new Vuex.Store({
+export default new Vuex.Store({
   state: {
-    name: "全局Store",
-    globalLoading: false
   },
   mutations: {
-
   },
   actions: {
-    getInfo() {
-        console.log("这是从store中打印出来的！")
-    }
   },
   modules: {
     storeBranch: storeBranch
   }
 })
-
-export default store

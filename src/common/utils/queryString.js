@@ -58,31 +58,9 @@ export function thousandsFormat(number) {
 }
 
 // 数组去重
-
 export function arrRepeat(arr) {
     let r = arr.filter(function(element, index, self) {
         return self.indexOf(element) === index;
     });
     return r
 }
-
-/**
- * 设置localStorage
- * @param name
- * @param value
- */
-export function setStorageItem(name, value) {
-    if (value) {
-      window.localStorage.setItem(name, JSON.stringify(value));
-    }
-}
-
-/**
- * 获取localStorage
- * @param name
- * @param value
- */
-export function getStorageItem(name) {
-    let value = window.localStorage.getItem(name);
-    return value == null ? '' : JSON.parse(value);
-  }
