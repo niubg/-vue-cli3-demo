@@ -2,17 +2,25 @@ import React, { Component } from 'react';
 import './index.less';
 import { Menu, Dropdown } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
-
+import { post } from '../../common/utils/http';
 
 const menu = (
   <Menu>
     <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="http://www.alipay.com/"
+      >
         1st menu item
       </a>
     </Menu.Item>
     <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="http://www.taobao.com/"
+      >
         2nd menu item
       </a>
     </Menu.Item>
@@ -24,27 +32,32 @@ const menu = (
   </Menu>
 );
 
-class Two extends React.Component {  
+class Two extends React.Component {
   componentWillMount() {
-    console.log("在渲染前调用")
+    console.log('在渲染前调用');
   }
   componentDidMount() {
-    console.log("在第一次渲染后调用")
+    console.log('在第一次渲染后调用');
+    post('niubg/special').then(res => {});
   }
   componentWillReceiveProps(newProps) {
-    console.log("在组件接收到一个新的 prop ")
+    console.log('在组件接收到一个新的 prop ');
   }
   shouldComponentUpdate(newProps, newState) {
     return true;
   }
   componentWillUpdate(nextProps, nextState) {
-    console.log("在组件接收到新的props或者state但还没有render时被调用", nextProps, nextState)
+    console.log(
+      '在组件接收到新的props或者state但还没有render时被调用',
+      nextProps,
+      nextState,
+    );
   }
   componentDidUpdate(prevProps, prevState) {
-    console.log("在组件完成更新后立即调用")
+    console.log('在组件完成更新后立即调用');
   }
   componentWillUnmount() {
-    console.log("在组件从 DOM 中移除之前立刻被调用")
+    console.log('在组件从 DOM 中移除之前立刻被调用');
   }
 
   render() {
