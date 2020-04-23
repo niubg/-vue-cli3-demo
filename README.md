@@ -1,4 +1,3 @@
-# author
 
 **配置：**
     vue-cli3、
